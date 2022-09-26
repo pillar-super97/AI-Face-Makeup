@@ -19,7 +19,7 @@ class Ui_SelectStyle(QDialog):
         
         self.label_1 = QtWidgets.QLabel(self.widget)
         self.label_1.setText("")
-        self.label_1.setPixmap(QtGui.QPixmap("photo/style/1.bmp"))
+        self.label_1.setPixmap(QtGui.QPixmap("FaceSwap/photo/style/1.bmp"))
         self.label_1.setScaledContents(True)
         self.label_1.setObjectName("label_1")
         self.label_1.mousePressEvent = partial(self.changeFaceDialog, 1)
@@ -27,7 +27,7 @@ class Ui_SelectStyle(QDialog):
 
         self.label_2 = QtWidgets.QLabel(self.widget)
         self.label_2.setText("")
-        self.label_2.setPixmap(QtGui.QPixmap("photo/style/2.bmp"))
+        self.label_2.setPixmap(QtGui.QPixmap("FaceSwap/photo/style/2.bmp"))
         self.label_2.setScaledContents(True)
         self.label_2.setObjectName("label_2")
         self.label_2.mousePressEvent = partial(self.changeFaceDialog, 2)
@@ -35,7 +35,7 @@ class Ui_SelectStyle(QDialog):
 
         self.label_3 = QtWidgets.QLabel(self.widget)
         self.label_3.setText("")
-        self.label_3.setPixmap(QtGui.QPixmap("photo/style/3.bmp"))
+        self.label_3.setPixmap(QtGui.QPixmap("FaceSwap/photo/style/3.bmp"))
         self.label_3.setScaledContents(True)
         self.label_3.setObjectName("label_3")
         self.label_3.mousePressEvent = partial(self.changeFaceDialog, 3)
@@ -43,7 +43,7 @@ class Ui_SelectStyle(QDialog):
 
         self.label_4 = QtWidgets.QLabel(self.widget)
         self.label_4.setText("")
-        self.label_4.setPixmap(QtGui.QPixmap("photo/style/4.bmp"))
+        self.label_4.setPixmap(QtGui.QPixmap("FaceSwap/photo/style/4.bmp"))
         self.label_4.setScaledContents(True)
         self.label_4.setObjectName("label_4")
         self.label_4.mousePressEvent = partial(self.changeFaceDialog, 4)

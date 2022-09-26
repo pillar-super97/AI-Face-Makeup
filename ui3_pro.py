@@ -15,18 +15,26 @@ class Ui_FaceSwap(QDialog):
     
     def __init__(self, Id):
         super().__init__()
-        src_img = 'photo/1.png'
-        dst_img = 'photo/style/real/' + str(Id) + '.jpg'
-        out_img = 'photo/out.jpg'
+        
+        # Dialog.setObjectName("Dialog")
+        # Dialog.resize(500, 500)
+        # self.label = QtWidgets.QLabel(Dialog)
+        src_img = 'FaceSwap/photo/1.png'
+        dst_img = 'FaceSwap/photo/style/real/' + str(Id) + '.jpg'
+        out_img = 'FaceSwap/photo/out.jpg'
 
         result = self.faceSwap(src_img, dst_img, out_img)
         self.widget = QtWidgets.QWidget()
-        self.widget.setGeometry(QtCore.QRect(40, 60, 400, 400))
+        self.widget.setGeometry(QtCore.QRect(50, 50, 400, 400))
         self.gridLayout = QtWidgets.QGridLayout(self.widget)
         
         self.label_1 = QtWidgets.QLabel(self.widget)
+        self.label_1.setGeometry(QtCore.QRect(50, 50, 400, 400))
         self.label_1.setText("")
-        self.label_1.setPixmap(QtGui.QPixmap('photo/out.jpg'))
+        pixmap = QtGui.QPixmap(out_img)
+        pixmap_resized = pixmap.scaled(400, 400, QtCore.Qt.KeepAspectRatio)
+
+        self.label_1.setPixmap(pixmap_resized)
         self.label_1.setScaledContents(True)
         self.label_1.setObjectName("label_1")
         self.gridLayout.addWidget(self.label_1, 0, 0, 1, 1)

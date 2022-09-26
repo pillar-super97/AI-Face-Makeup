@@ -12,14 +12,31 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from ui2_pro import Ui_SelectStyle
 from PyQt5.QtWidgets import QApplication, QDialog, QMainWindow, QPushButton
 
+Stylesheet = """
+{
+    background: #002025;
+    border-radius: 20px;
+    opacity: 100;
+    border: 2px solid #ff2025;                   
+}
+"""
 class Ui_Dialog(QMainWindow):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(500, 500)
+        # Dialog.setWindowOpacity(0.5)
+        # Dialog.setStyleSheet("border: 3px solid blue; border-radius: 200px;")
+
+        side = min(self.width(), self.height())
+        maskedRegion = QtGui.QRegion(self.width()/2 - side/2, self.height()/2 - side/2, side, side, QtGui.QRegion.Ellipse)
+        self.setMask(maskedRegion)
+
         self.label = QtWidgets.QLabel(Dialog)
+        # self.label.setWindowOpacity(0)
+        # Dialog.setStyleSheet("background:transparent;")
         self.label.setGeometry(QtCore.QRect(50, 50, 400, 400))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("photo/avatar.png"))
+        self.label.setPixmap(QtGui.QPixmap("FaceSwap/photo/avatar.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.ButtonTakePicture = QtWidgets.QPushButton(Dialog)
@@ -49,7 +66,7 @@ class Ui_Dialog(QMainWindow):
 
     def getPicture(self):
         self.label.clear()
-        self.label.setPixmap(QtGui.QPixmap("photo/1.png"))
+        self.label.setPixmap(QtGui.QPixmap("FaceSwap/photo/1.png"))
         self.ButtonTakeAgain.show()
         self.ButtonConfirm.show()
         self.ButtonTakePicture.hide()
